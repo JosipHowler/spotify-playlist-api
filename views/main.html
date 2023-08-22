@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="title">Spotify Playlist API</h1>
+    <div class="search-bar">
+        <form action="">
+            <input type="text" placeholder="Enter a song name" aria-label="Enter a song name input" class="song-name-input" data-search-input>
+            <button aria-label="Search for songs button" class="song-name-button" data-search-button>+</button>
+        </form>
+    </div>
+    <div class="results" >
+        <h2>Results</h2>
+        <div class="tracks" data-tracks>
+
+        </div>
+    </div>
+    <div class="playlist" data-playlist>
+        <div class="playlist-creator" data-playlist-creator>
+            <input type="text" placeholder="Playlist name" aria-label="Enter a new playlist name input" class="playlist-name-input" data-playlist-name>
+            <button aria-label="Create new playlist button" class="playlist-button" data-playlist-creator-button>+</button>
+        </div>
+        <div class="tracks" data-playlist-tracks>
+
+        </div>
+    </div>
+
+    <template id="my-template">
+        <div class="track">
+            <div class="track-info-top">
+                <h3 data-name></h3>
+                <button class="track-add-button" data-track-id="${track.id}">+</button>
+            </div>
+            <div class="track-info-bottom">
+                <div class="track-subinfo">
+                    <h4 data-artist></h4>
+                </div>
+                <div class="track-subinfo">
+                    <h4 data-length></h4>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="my-template-2">
+        <div class="track">
+            <div class="track-info-top">
+                <h3 data-playlist-track-name></h3>
+                <button class="track-remove-button" data-playlist-track-id="${track.id}">-</button>
+            </div>
+            <div class="track-info-bottom">
+                <div class="track-subinfo">
+                    <h4 data-playlist-artist></h4>
+                </div>
+                <div class="track-subinfo">
+                    <h4 data-playlist-length></h4>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/logged.js"></script>
+</body>
+</html>

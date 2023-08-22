@@ -1,0 +1,282 @@
+*, *::before, *::after{
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color: #F0F1F2;
+    --main-color-rgba: rgba(240, 241, 242, 0.5);
+    --text-background-color: rgba(0, 142, 155, 0.1);
+    --main-content-background-color: rgba(0, 0, 0, 0.5);
+    --login-button-background-color: #2b2a2a;
+}
+
+body{
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    position: relative;
+    background-image: url("./images/microphone.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--main-color);
+    font-size: 1.5rem;
+    display: grid;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    background-image: inherit;
+    filter: blur(2px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/*---------------------------------- Title ----------------------------------*/
+.title{
+    text-align: center;
+    font-size: calc(1vw + 3rem);
+    font-weight: 900;
+    background-color: var(--text-background-color);
+    margin-top: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+/*---------------------------------- Title ----------------------------------*/
+
+/*---------------------------------- Search Bar ----------------------------------*/
+.search-bar{
+    margin-bottom: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.song-name-input{
+    border: none;
+    background: none;
+    outline: none;
+    box-shadow: 0 2px 0 0 var(--main-color);
+    color: var(--main-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: box-shadow 200ms ease-in-out;
+}
+
+.song-name-input::placeholder{
+    color: var(--main-color-rgba);
+}
+
+.song-name-input:focus{
+    box-shadow: 0 3.5px 0 0 var(--main-color);
+}
+
+.song-name-button{
+    background: none;
+    border: none;
+    color: var(--main-color);
+    font-size: 2.5rem;
+    padding: 0;
+    position: relative;
+    top: 0.2em;
+    font-weight: 800;
+    cursor: pointer;
+    transition: opacity 200ms ease-in-out;
+}
+
+.song-name-button:hover{
+    opacity: 0.5;
+}
+/*---------------------------------- Search Bar ----------------------------------*/
+
+/*---------------------------------- Results ----------------------------------*/
+.results{
+    background-color: var(--main-content-background-color);
+    padding: 0 1em 0 1em;
+    border-radius: 20px;
+}
+
+.track{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.track::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: grey;
+    opacity: 0.2;
+}
+
+.track-info-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2em;
+}
+
+.track-info-top > h3{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.track-add-button{
+    background: none;
+    border: none;
+    color: var(--main-color);
+    font-size: 2.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: opacity 200ms ease-in-out;
+}
+
+.track-add-button:hover{
+    opacity: 0.5;
+}
+
+.track-info-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2em;
+}
+
+.track-subinfo{
+    font-size: 1.1rem;
+    opacity: 0.7;
+}
+/*---------------------------------- Results ----------------------------------*/
+
+/*---------------------------------- Playlist ----------------------------------*/
+.playlist{
+    background-color: var(--main-content-background-color);
+    padding: 0 1em 0 1em;
+    border-radius: 20px;
+}
+
+.playlist-creator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlist-name-input{
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--main-color);
+    font-size: 2.1rem;
+    font-weight: 700;
+    transition: box-shadow 200ms ease-in-out;
+    width: 10em;
+    margin-top: 0.8em;
+    margin-bottom: 1.2em;
+}
+
+.playlist-name-input::placeholder{
+    color: var(--main-color-rgba);
+}
+
+.playlist-name-input:focus{
+    box-shadow: 0 2px 0 0 var(--main-color);
+}
+
+.playlist-button{
+    background: none;
+    border: none;
+    color: var(--main-color);
+    font-size: 3rem;
+    font-weight: 800;
+    position: relative;
+    bottom: 0.125em;
+    cursor: pointer;
+    transition: opacity 200ms ease-in-out;
+}
+
+.playlist-button:hover{
+    opacity: 0.5;
+}
+
+.track-remove-button{
+    background: none;
+    border: none;
+    color: var(--main-color);
+    font-size: 2.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: opacity 200ms ease-in-out;
+}
+
+.track-remove-button:hover{
+    opacity: 0.5;
+}
+/*---------------------------------- Playlist ----------------------------------*/
+
+/*---------------------------------- Responsive ----------------------------------*/
+@media (min-width: 600px){
+    body{
+        grid-template-columns: repeat(1, minmax(200px, 500px));
+    }
+}
+
+@media (min-width: 900px){
+    .title{
+        grid-area: header;
+    }
+
+    .search-bar{
+        grid-area: search;
+    }
+
+    .results{
+        grid-area: results;
+    }
+
+    .playlist{
+        grid-area: playlist;
+    }
+
+    body{
+        grid: 
+        'header header header header' auto
+        'search search search search'
+        '. results playlist .' auto /
+        1fr minmax(100px, 400px) minmax(100px, 400px) 1fr;
+        grid-gap: 1em;
+    }
+}
+/*---------------------------------- Responsive ----------------------------------*/
+
+/*---------------------------------- Authorization ----------------------------------*/
+.authorization-button{
+    width: 12em;
+    height: 2.8em;
+    background-color: var(--login-button-background-color);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color: var(--main-color);
+    font-size: 2rem;
+    font-weight: 800;
+    transition: opacity 200ms ease-in-out;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.authorization-button:hover{
+    opacity: 0.85;
+}
+/*---------------------------------- Authorization ----------------------------------*/
