@@ -18,6 +18,7 @@ Pokrenuti aplikaciju sa npm
 ```bash
   npm start
 ```
+- Moguce je vidjeti stranicu na [localhost:5000](http://localhost:5000/) pri pokretanju
 ## Environment Variables
 
 Za pokretanje projekta, potebno je dodati sljedece environment varijable u svoj .env file
